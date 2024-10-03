@@ -52,10 +52,25 @@
     <Compile Include="MainJobApplyOrganizer.Designer.cs">
       <DependentUpon>MainJobApplyOrganizer.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewJobProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewJobProject.Designer.cs">
+      <DependentUpon>NewJobProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainJobApplyOrganizer.resx">
       <DependentUpon>MainJobApplyOrganizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewJobProject.resx">
+      <DependentUpon>NewJobProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +81,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

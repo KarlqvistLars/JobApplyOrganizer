@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.1">
-  <zoom_level>10</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>130</y>
-      <w>210</w>
-      <h>190</h>
+      <x>119</x>
+      <y>315</y>
+      <w>245</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>*JobApplyOrganizer*
+Form
 --
 -list [ ] Object
 
@@ -26,15 +27,129 @@ Responsibilities
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>30</y>
-      <w>340</w>
-      <h>80</h>
+      <x>119</x>
+      <y>231</y>
+      <w>161</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes>-
-Datum: 2024-10-03 - ver 1.001
+Datum: 2024-10-03 - ver 1.002
 Creator: Lars Karlqvist
 Language: C#</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>399</x>
+      <y>469</y>
+      <w>245</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>*Update*
+Form/Button
+--
+- payload : String[]
+
+--
+# UpdateProject(String[] payload)
+# 
+# 
+--
+Responsibilities
+-- Uppdatera HTML-fil med n förndringar i materialet.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>399</x>
+      <y>315</y>
+      <w>245</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>*New*
+Form
+--
+- payload : String[]
+
+--
+# NewJobProject(String[] payload)
+# 
+# 
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>686</x>
+      <y>469</y>
+      <w>245</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>*MoveToArchive*
+Button
+--
+- payload : String[]
+
+--
+# MoveToArchive(String[] payload)
+# 
+# 
+--
+Responsibilities
+-- Döpa om och flytta utdaterade jobb till arkivet</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>686</x>
+      <y>315</y>
+      <w>245</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>*OpenHTML*
+Button
+--
+- path : String
+- name : String 
+--
+# Open(String path, String name)
+# 
+# 
+--
+Responsibilities
+-- Öppna vald URL</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>119</x>
+      <y>469</y>
+      <w>245</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>*Settings*
+Form
+--
+- workDir : String
+- preFix : String
+- postFix : String
+
+--
+# Settings(String payLoad)
+# 
+# 
+--
+Responsibilities
+-- Sätta arbetsbibliotek samt 
+övriga parametrar till setupfil</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
