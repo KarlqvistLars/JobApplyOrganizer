@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainJobApplyOrganizer));
             this.listView1 = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.ButtonNew = new System.Windows.Forms.Button();
+            this.ButtonUpdate = new System.Windows.Forms.Button();
+            this.ButtonMoveToArkiv = new System.Windows.Forms.Button();
+            this.textBoxJobTitle = new System.Windows.Forms.TextBox();
+            this.textBoxCompany = new System.Windows.Forms.TextBox();
+            this.ButtonSettings = new System.Windows.Forms.Button();
+            this.ButtonExit = new System.Windows.Forms.Button();
+            this.ButtonOpenHTML = new System.Windows.Forms.Button();
             this.labelJobTitle = new System.Windows.Forms.Label();
             this.labelCompany = new System.Windows.Forms.Label();
             this.labelCreationDate = new System.Windows.Forms.Label();
@@ -53,83 +53,88 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // button1
+            // ButtonNew
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 48);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Create";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ButtonNew.Location = new System.Drawing.Point(12, 12);
+            this.ButtonNew.Name = "ButtonNew";
+            this.ButtonNew.Size = new System.Drawing.Size(152, 48);
+            this.ButtonNew.TabIndex = 1;
+            this.ButtonNew.Text = "New";
+            this.ButtonNew.UseVisualStyleBackColor = true;
+            this.ButtonNew.Click += new System.EventHandler(this.ButtonNew_Click);
             // 
-            // button2
+            // ButtonUpdate
             // 
-            this.button2.Location = new System.Drawing.Point(12, 66);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 48);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Update";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ButtonUpdate.Location = new System.Drawing.Point(12, 66);
+            this.ButtonUpdate.Name = "ButtonUpdate";
+            this.ButtonUpdate.Size = new System.Drawing.Size(152, 48);
+            this.ButtonUpdate.TabIndex = 2;
+            this.ButtonUpdate.Text = "Update";
+            this.ButtonUpdate.UseVisualStyleBackColor = true;
+            this.ButtonUpdate.Click += new System.EventHandler(this.ButtonUpdate_Click);
             // 
-            // button3
+            // ButtonMoveToArkiv
             // 
-            this.button3.Location = new System.Drawing.Point(12, 280);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 48);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Move to archive";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ButtonMoveToArkiv.Location = new System.Drawing.Point(12, 280);
+            this.ButtonMoveToArkiv.Name = "ButtonMoveToArkiv";
+            this.ButtonMoveToArkiv.Size = new System.Drawing.Size(152, 48);
+            this.ButtonMoveToArkiv.TabIndex = 3;
+            this.ButtonMoveToArkiv.Text = "Move to archive";
+            this.ButtonMoveToArkiv.UseVisualStyleBackColor = true;
+            this.ButtonMoveToArkiv.Click += new System.EventHandler(this.ButtonMoveToArkiv_Click);
             // 
-            // textBox1
+            // textBoxJobTitle
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(187, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 30);
-            this.textBox1.TabIndex = 4;
+            this.textBoxJobTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxJobTitle.Location = new System.Drawing.Point(187, 30);
+            this.textBoxJobTitle.Name = "textBoxJobTitle";
+            this.textBoxJobTitle.Size = new System.Drawing.Size(234, 30);
+            this.textBoxJobTitle.TabIndex = 4;
             // 
-            // textBox2
+            // textBoxCompany
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(427, 30);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(357, 30);
-            this.textBox2.TabIndex = 5;
+            this.textBoxCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCompany.Location = new System.Drawing.Point(427, 30);
+            this.textBoxCompany.Name = "textBoxCompany";
+            this.textBoxCompany.Size = new System.Drawing.Size(357, 30);
+            this.textBoxCompany.TabIndex = 5;
             // 
-            // button4
+            // ButtonSettings
             // 
-            this.button4.Location = new System.Drawing.Point(12, 334);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(152, 48);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Settings";
-            this.button4.UseVisualStyleBackColor = true;
+            this.ButtonSettings.Location = new System.Drawing.Point(12, 334);
+            this.ButtonSettings.Name = "ButtonSettings";
+            this.ButtonSettings.Size = new System.Drawing.Size(152, 48);
+            this.ButtonSettings.TabIndex = 6;
+            this.ButtonSettings.Text = "Settings";
+            this.ButtonSettings.UseVisualStyleBackColor = true;
+            this.ButtonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
             // 
-            // button5
+            // ButtonExit
             // 
-            this.button5.Location = new System.Drawing.Point(12, 388);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(152, 48);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Exit";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.ButtonExit.Location = new System.Drawing.Point(12, 388);
+            this.ButtonExit.Name = "ButtonExit";
+            this.ButtonExit.Size = new System.Drawing.Size(152, 48);
+            this.ButtonExit.TabIndex = 7;
+            this.ButtonExit.Text = "Exit";
+            this.ButtonExit.UseVisualStyleBackColor = true;
+            this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
             // 
-            // button6
+            // ButtonOpenHTML
             // 
-            this.button6.Location = new System.Drawing.Point(12, 120);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(152, 48);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Open HTML";
-            this.button6.UseVisualStyleBackColor = true;
+            this.ButtonOpenHTML.Location = new System.Drawing.Point(12, 120);
+            this.ButtonOpenHTML.Name = "ButtonOpenHTML";
+            this.ButtonOpenHTML.Size = new System.Drawing.Size(152, 48);
+            this.ButtonOpenHTML.TabIndex = 8;
+            this.ButtonOpenHTML.Text = "Open HTML";
+            this.ButtonOpenHTML.UseVisualStyleBackColor = true;
+            this.ButtonOpenHTML.Click += new System.EventHandler(this.ButtonOpenHTML_Click);
             // 
             // labelJobTitle
             // 
             this.labelJobTitle.AutoSize = true;
             this.labelJobTitle.Location = new System.Drawing.Point(184, 12);
             this.labelJobTitle.Name = "labelJobTitle";
-            this.labelJobTitle.Size = new System.Drawing.Size(66, 20);
+            this.labelJobTitle.Size = new System.Drawing.Size(53, 16);
             this.labelJobTitle.TabIndex = 9;
             this.labelJobTitle.Text = "Job title";
             // 
@@ -138,7 +143,7 @@
             this.labelCompany.AutoSize = true;
             this.labelCompany.Location = new System.Drawing.Point(424, 12);
             this.labelCompany.Name = "labelCompany";
-            this.labelCompany.Size = new System.Drawing.Size(81, 20);
+            this.labelCompany.Size = new System.Drawing.Size(65, 16);
             this.labelCompany.TabIndex = 10;
             this.labelCompany.Text = "Company";
             // 
@@ -169,17 +174,18 @@
             this.Controls.Add(this.labelCreationDate);
             this.Controls.Add(this.labelCompany);
             this.Controls.Add(this.labelJobTitle);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonOpenHTML);
+            this.Controls.Add(this.ButtonExit);
+            this.Controls.Add(this.ButtonSettings);
+            this.Controls.Add(this.textBoxCompany);
+            this.Controls.Add(this.textBoxJobTitle);
+            this.Controls.Add(this.ButtonMoveToArkiv);
+            this.Controls.Add(this.ButtonUpdate);
+            this.Controls.Add(this.ButtonNew);
             this.Controls.Add(this.listView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainJobApplyOrganizer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobApplyOrganizer";
             this.Load += new System.EventHandler(this.MainJobApplyOrganizer_Load);
             this.ResumeLayout(false);
@@ -190,14 +196,14 @@
         #endregion
 
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button ButtonNew;
+        private System.Windows.Forms.Button ButtonUpdate;
+        private System.Windows.Forms.Button ButtonMoveToArkiv;
+        private System.Windows.Forms.TextBox textBoxJobTitle;
+        private System.Windows.Forms.TextBox textBoxCompany;
+        private System.Windows.Forms.Button ButtonSettings;
+        private System.Windows.Forms.Button ButtonExit;
+        private System.Windows.Forms.Button ButtonOpenHTML;
         private System.Windows.Forms.Label labelJobTitle;
         private System.Windows.Forms.Label labelCompany;
         private System.Windows.Forms.Label labelCreationDate;

@@ -8,3 +8,5 @@ C:\PROJEKT\2024\24019_JobApplyOrganizer\Code\JobApplyOrganizer\JobApplyOrganizer
 C:\PROJEKT\2024\24019_JobApplyOrganizer\Code\JobApplyOrganizer\JobApplyOrganizer\JobApplyOrganizer\obj\Debug\JobApplyOrganizer.csproj.CoreCompileInputs.cache
 C:\PROJEKT\2024\24019_JobApplyOrganizer\Code\JobApplyOrganizer\JobApplyOrganizer\JobApplyOrganizer\obj\Debug\JobApplyOrganizer.exe
 C:\PROJEKT\2024\24019_JobApplyOrganizer\Code\JobApplyOrganizer\JobApplyOrganizer\JobApplyOrganizer\obj\Debug\JobApplyOrganizer.pdb
+C:\PROJEKT\2024\24019_JobApplyOrganizer\Code\JobApplyOrganizer\JobApplyOrganizer\JobApplyOrganizer\obj\Debug\JobApplyOrganizer.NewJobProject.resources
+C:\PROJEKT\2024\24019_JobApplyOrganizer\Code\JobApplyOrganizer\JobApplyOrganizer\JobApplyOrganizer\obj\Debug\JobApplyOrganizer.Settings.resources
