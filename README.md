@@ -3,4 +3,5 @@
 
 Att slå två flugor på en smäll. Att både söka arbete samtidigt som man visar på kunskaper som kan var användbara för en arbetsgivare.
 
-![Skiss]([http://url/to/img.png](https://github.com/KarlqvistLars/JobApplyOrganizer/Pictures/20241003_100144.jpg))
+![Skiss](https://github.com/KarlqvistLars/JobApplyOrganizer/Pictures/20241003_100144.jpg))
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
