@@ -46,12 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JobApplication.cs" />
     <Compile Include="MainJobApplyOrganizer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainJobApplyOrganizer.Designer.cs">
       <DependentUpon>MainJobApplyOrganizer.cs</DependentUpon>
     </Compile>
+    <Compile Include="MakeHTML.cs" />
     <Compile Include="NewJobProject.cs">
       <SubType>Form</SubType>
     </Compile>

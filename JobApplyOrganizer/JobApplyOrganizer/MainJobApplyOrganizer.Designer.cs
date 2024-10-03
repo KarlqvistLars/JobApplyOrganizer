@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainJobApplyOrganizer));
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewJobs = new System.Windows.Forms.ListView();
             this.ButtonNew = new System.Windows.Forms.Button();
             this.ButtonUpdate = new System.Windows.Forms.Button();
             this.ButtonMoveToArkiv = new System.Windows.Forms.Button();
@@ -44,14 +44,14 @@
             this.labelName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listView1
+            // listViewJobs
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(187, 114);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(597, 322);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewJobs.HideSelection = false;
+            this.listViewJobs.Location = new System.Drawing.Point(187, 114);
+            this.listViewJobs.Name = "listViewJobs";
+            this.listViewJobs.Size = new System.Drawing.Size(597, 322);
+            this.listViewJobs.TabIndex = 0;
+            this.listViewJobs.UseCompatibleStateImageBehavior = false;
             // 
             // ButtonNew
             // 
@@ -182,7 +182,7 @@
             this.Controls.Add(this.ButtonMoveToArkiv);
             this.Controls.Add(this.ButtonUpdate);
             this.Controls.Add(this.ButtonNew);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewJobs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainJobApplyOrganizer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -195,7 +195,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewJobs;
         private System.Windows.Forms.Button ButtonNew;
         private System.Windows.Forms.Button ButtonUpdate;
         private System.Windows.Forms.Button ButtonMoveToArkiv;
