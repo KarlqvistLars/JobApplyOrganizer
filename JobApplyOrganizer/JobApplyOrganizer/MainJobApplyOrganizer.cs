@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace JobApplyOrganizer
 {
-    public partial class Form1 : Form
+    public partial class MainJobApplyOrganizer : Form
     {
-        public Form1()
+        public MainJobApplyOrganizer()
         {
             InitializeComponent();
+        }
+
+        private void MainJobApplyOrganizer_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

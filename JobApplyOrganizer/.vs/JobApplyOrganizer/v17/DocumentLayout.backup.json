@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|c:\\projekt\\2024\\24019_jobapplyorganizer\\code\\jobapplyorganizer\\jobapplyorganizer\\jobapplyorganizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|c:\\projekt\\2024\\24019_jobapplyorganizer\\code\\jobapplyorganizer\\jobapplyorganizer\\jobapplyorganizer\\mainjobapplyorganizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\mainjobapplyorganizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\jobapplyorganizer\\mainjobapplyorganizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\mainjobapplyorganizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +27,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\Form1.cs",
-              "RelativeDocumentMoniker": "JobApplyOrganizer\\Form1.cs",
-              "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\Form1.cs [Design]",
-              "RelativeToolTip": "JobApplyOrganizer\\Form1.cs [Design]",
+              "Title": "MainJobApplyOrganizer.cs",
+              "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MainJobApplyOrganizer.cs",
+              "RelativeDocumentMoniker": "JobApplyOrganizer\\MainJobApplyOrganizer.cs",
+              "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MainJobApplyOrganizer.cs",
+              "RelativeToolTip": "JobApplyOrganizer\\MainJobApplyOrganizer.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADgvx4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T09:50:45.195Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-03T10:11:44.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainJobApplyOrganizer.cs [Design]",
+              "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MainJobApplyOrganizer.cs",
+              "RelativeDocumentMoniker": "JobApplyOrganizer\\MainJobApplyOrganizer.cs",
+              "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MainJobApplyOrganizer.cs [Design]",
+              "RelativeToolTip": "JobApplyOrganizer\\MainJobApplyOrganizer.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T09:50:45.195Z"
             }
           ]
         }
