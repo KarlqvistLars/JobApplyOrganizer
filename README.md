@@ -7,3 +7,5 @@ To both look for work while demonstrating skills that could be useful for an emp
 ### First Sketch on project
 ![Skiss](Pictures/20241003_100144.JPG)
 
+![UML](UML/UML_JobApplyOrganizer_20241003.pdf)
+
