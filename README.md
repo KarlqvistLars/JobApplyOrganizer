@@ -9,3 +9,4 @@ To both look for work while demonstrating skills that could be useful for an emp
 </br>
 ![UML](UML/UML_JobApplyOrganizer_20241003.PDF)
 
+https://github.com/KarlqvistLars/JobApplyOrganizer/blob/main/UML/UML_JobApplyOrganizer_20241003.pdf
