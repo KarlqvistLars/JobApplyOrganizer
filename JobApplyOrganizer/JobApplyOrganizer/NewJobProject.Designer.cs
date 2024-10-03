@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewJobProject));
-            this.labelJobtitle = new System.Windows.Forms.Label();
-            this.labelCompany = new System.Windows.Forms.Label();
+            this.textJobtitle = new System.Windows.Forms.Label();
+            this.textCompany = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.textBoxURL = new System.Windows.Forms.TextBox();
@@ -42,27 +42,29 @@
             this.labelEmail = new System.Windows.Forms.Label();
             this.labelPhone = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
+            this.labelJobTitle = new System.Windows.Forms.Label();
+            this.labelCompany = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // labelJobtitle
+            // textJobtitle
             // 
-            this.labelJobtitle.AutoSize = true;
-            this.labelJobtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJobtitle.Location = new System.Drawing.Point(49, 38);
-            this.labelJobtitle.Name = "labelJobtitle";
-            this.labelJobtitle.Size = new System.Drawing.Size(19, 25);
-            this.labelJobtitle.TabIndex = 0;
-            this.labelJobtitle.Text = "-";
+            this.textJobtitle.AutoSize = true;
+            this.textJobtitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textJobtitle.Location = new System.Drawing.Point(49, 38);
+            this.textJobtitle.Name = "textJobtitle";
+            this.textJobtitle.Size = new System.Drawing.Size(19, 25);
+            this.textJobtitle.TabIndex = 0;
+            this.textJobtitle.Text = "-";
             // 
-            // labelCompany
+            // textCompany
             // 
-            this.labelCompany.AutoSize = true;
-            this.labelCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCompany.Location = new System.Drawing.Point(310, 36);
-            this.labelCompany.Name = "labelCompany";
-            this.labelCompany.Size = new System.Drawing.Size(19, 25);
-            this.labelCompany.TabIndex = 1;
-            this.labelCompany.Text = "-";
+            this.textCompany.AutoSize = true;
+            this.textCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCompany.Location = new System.Drawing.Point(310, 36);
+            this.textCompany.Name = "textCompany";
+            this.textCompany.Size = new System.Drawing.Size(19, 25);
+            this.textCompany.TabIndex = 1;
+            this.textCompany.Text = "-";
             // 
             // buttonCreate
             // 
@@ -72,6 +74,7 @@
             this.buttonCreate.TabIndex = 2;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // buttonCancel
             // 
@@ -161,11 +164,31 @@
             this.labelName.TabIndex = 12;
             this.labelName.Text = "Name:";
             // 
+            // labelJobTitle
+            // 
+            this.labelJobTitle.AutoSize = true;
+            this.labelJobTitle.Location = new System.Drawing.Point(51, 9);
+            this.labelJobTitle.Name = "labelJobTitle";
+            this.labelJobTitle.Size = new System.Drawing.Size(53, 16);
+            this.labelJobTitle.TabIndex = 13;
+            this.labelJobTitle.Text = "Job title";
+            // 
+            // labelCompany
+            // 
+            this.labelCompany.AutoSize = true;
+            this.labelCompany.Location = new System.Drawing.Point(312, 9);
+            this.labelCompany.Name = "labelCompany";
+            this.labelCompany.Size = new System.Drawing.Size(65, 16);
+            this.labelCompany.TabIndex = 14;
+            this.labelCompany.Text = "Company";
+            // 
             // NewJobProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 360);
+            this.ClientSize = new System.Drawing.Size(788, 352);
+            this.Controls.Add(this.labelCompany);
+            this.Controls.Add(this.labelJobTitle);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.labelPhone);
             this.Controls.Add(this.labelEmail);
@@ -177,8 +200,8 @@
             this.Controls.Add(this.textBoxURL);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonCreate);
-            this.Controls.Add(this.labelCompany);
-            this.Controls.Add(this.labelJobtitle);
+            this.Controls.Add(this.textCompany);
+            this.Controls.Add(this.textJobtitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewJobProject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -190,8 +213,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelJobtitle;
-        private System.Windows.Forms.Label labelCompany;
+        private System.Windows.Forms.Label textJobtitle;
+        private System.Windows.Forms.Label textCompany;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.TextBox textBoxURL;
@@ -203,5 +226,7 @@
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Label labelPhone;
         private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelJobTitle;
+        private System.Windows.Forms.Label labelCompany;
     }
 }
