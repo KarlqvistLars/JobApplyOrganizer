@@ -4,7 +4,9 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace JobApplyOrganizer
@@ -16,20 +18,15 @@ namespace JobApplyOrganizer
             TXT_Small = 0,
             TXT = 1,
             PDF = 2,
+            FOLD = 3,
         }
         public MakeHTML()
         {
         }
 
-        /*
-        public MakeHTML(String path, String jobTitle, String company)
-        {
-
-        }*/
-
         public void CreateHTML(String pagename, String installpath, DateTime date)
         {
-            String jobPath = installpath + "\\" + date.ToString("yyyyMMdd") + "_" + pagename + "\\";
+            String jobPath = installpath + "\\P" + date.ToString("yyyyMMdd") + "_" + pagename + "\\";
             string templatePath = installpath + "\\Templates\\";
             if (!Directory.Exists(jobPath))
             {
@@ -42,6 +39,10 @@ namespace JobApplyOrganizer
             //Pass the filepath and filename to the StreamWriter Constructor
             if (!File.Exists(fullpath))
             {
+                // TODO: SKapa loop med hjälp av inlästa biblioteks sorter
+                String[] txtFiles = SearchFolders(Type.TXT, installpath);
+                //String[] pdfFiles = SearchFolders(Type.PDF, installpath);
+
                 MakeHeader(pagename, fullpath);
                 MakeBodyPart(Type.TXT_Small, pagename, fullpath, "Kontakt.txt");
                 MakeFooter(pagename, fullpath);
@@ -161,6 +162,31 @@ namespace JobApplyOrganizer
                     CopyDirectory(subDir.FullName, newDestinationDir, true);
                 }
             }
+        }
+
+        String[] SearchFolders(Enum type, String path)
+        {
+            // TODO: Sök jobbibiloteket efter ingående
+            List<string> searchFiles = Directory.GetFiles(path, "*.*").ToList();
+            List<string> searchDirs = Directory.GetDirectories(path, "*.*").ToList();
+
+            foreach (string files in searchFiles)
+            {
+                String str1 = @"\\";
+                String str2 = @"\";
+                String f = files.Replace(str1, str2);
+                Console.WriteLine("Search test files + "+ f.ToString());
+            }
+
+            foreach (string folder in searchDirs)
+            {
+                String str1 = @"\\";
+                String str2 = @"\";
+                String f = folder.Replace(str1,str2);
+                Console.WriteLine("Search test Dirs + " + f.ToString());
+            }
+
+            return new String[] { "", "" };
         }
     }
 }

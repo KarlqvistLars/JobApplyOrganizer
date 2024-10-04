@@ -14,40 +14,12 @@ namespace JobApplyOrganizer
         public MainJobApplyOrganizer()
         {
             InitializeComponent();
-            String line;
-            try
-            {
-                //Pass the file path and file name to the StreamReader constructor
-                StreamReader sr = new StreamReader(".\\config.txt");
-                //Read the first line of text
-                line = sr.ReadLine();
-                //Continue to read until you reach end of file
-                while (line != null)
-                {
-                    //write the line to console window
-                    Console.WriteLine(line + " init");
-                    //Read the next line
-                    installpath = line;
-                    line = sr.ReadLine();
-                }
-                //close the file
-                sr.Close();
-                Console.ReadLine();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Exception: " + e.Message);
-            }
-            finally
-            {
-                Console.WriteLine("Executing finally block.");
-            }
-
         }
 
         private void MainJobApplyOrganizer_Load(object sender, EventArgs e)
         {
             // TODO: Vad händer vid program start? LAdda bibliotek samt pojekt mm.
+            loadConfig();
         }
 
         private void ButtonExit_Click(object sender, EventArgs e)
@@ -89,6 +61,38 @@ namespace JobApplyOrganizer
         {
             // TODO: Skapa denna funktion Flytta till arkiv
             Console.WriteLine("\n***** Post is Moved to archive *****\n");
+        }
+
+        private void loadConfig()
+        {
+            String line;
+            try
+            {
+                //Pass the file path and file name to the StreamReader constructor
+                StreamReader sr = new StreamReader(".\\config.txt");
+                //Read the first line of text
+                line = sr.ReadLine();
+                //Continue to read until you reach end of file
+                while (line != null)
+                {
+                    //write the line to console window
+                    Console.WriteLine(line + " init");
+                    //Read the next line
+                    installpath = line;
+                    line = sr.ReadLine();
+                }
+                //close the file
+                sr.Close();
+                Console.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Executing finally block.");
+            }
         }
     }
 }
