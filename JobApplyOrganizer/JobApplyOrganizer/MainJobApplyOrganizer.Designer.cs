@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainJobApplyOrganizer));
-            this.listViewJobs = new System.Windows.Forms.ListView();
             this.ButtonNew = new System.Windows.Forms.Button();
             this.ButtonUpdate = new System.Windows.Forms.Button();
             this.ButtonMoveToArkiv = new System.Windows.Forms.Button();
@@ -42,22 +41,25 @@
             this.labelCompany = new System.Windows.Forms.Label();
             this.labelCreationDate = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
+            this.listBoxJobsInProgress = new System.Windows.Forms.ListBox();
+            this.labelActiveJobPath = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelNamn = new System.Windows.Forms.Label();
+            this.labelTele = new System.Windows.Forms.Label();
+            this.labelEmail = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listViewJobs
-            // 
-            this.listViewJobs.HideSelection = false;
-            this.listViewJobs.Location = new System.Drawing.Point(187, 114);
-            this.listViewJobs.Name = "listViewJobs";
-            this.listViewJobs.Size = new System.Drawing.Size(597, 322);
-            this.listViewJobs.TabIndex = 0;
-            this.listViewJobs.UseCompatibleStateImageBehavior = false;
             // 
             // ButtonNew
             // 
-            this.ButtonNew.Location = new System.Drawing.Point(12, 12);
+            this.ButtonNew.Location = new System.Drawing.Point(9, 10);
+            this.ButtonNew.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonNew.Name = "ButtonNew";
-            this.ButtonNew.Size = new System.Drawing.Size(152, 48);
+            this.ButtonNew.Size = new System.Drawing.Size(114, 39);
             this.ButtonNew.TabIndex = 1;
             this.ButtonNew.Text = "New";
             this.ButtonNew.UseVisualStyleBackColor = true;
@@ -65,9 +67,10 @@
             // 
             // ButtonUpdate
             // 
-            this.ButtonUpdate.Location = new System.Drawing.Point(12, 66);
+            this.ButtonUpdate.Location = new System.Drawing.Point(9, 54);
+            this.ButtonUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonUpdate.Name = "ButtonUpdate";
-            this.ButtonUpdate.Size = new System.Drawing.Size(152, 48);
+            this.ButtonUpdate.Size = new System.Drawing.Size(114, 39);
             this.ButtonUpdate.TabIndex = 2;
             this.ButtonUpdate.Text = "Update";
             this.ButtonUpdate.UseVisualStyleBackColor = true;
@@ -75,9 +78,10 @@
             // 
             // ButtonMoveToArkiv
             // 
-            this.ButtonMoveToArkiv.Location = new System.Drawing.Point(12, 280);
+            this.ButtonMoveToArkiv.Location = new System.Drawing.Point(9, 274);
+            this.ButtonMoveToArkiv.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonMoveToArkiv.Name = "ButtonMoveToArkiv";
-            this.ButtonMoveToArkiv.Size = new System.Drawing.Size(152, 48);
+            this.ButtonMoveToArkiv.Size = new System.Drawing.Size(114, 39);
             this.ButtonMoveToArkiv.TabIndex = 3;
             this.ButtonMoveToArkiv.Text = "Move to archive";
             this.ButtonMoveToArkiv.UseVisualStyleBackColor = true;
@@ -85,25 +89,28 @@
             // 
             // textBoxJobTitle
             // 
-            this.textBoxJobTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxJobTitle.Location = new System.Drawing.Point(187, 30);
+            this.textBoxJobTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxJobTitle.Location = new System.Drawing.Point(140, 24);
+            this.textBoxJobTitle.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxJobTitle.Name = "textBoxJobTitle";
-            this.textBoxJobTitle.Size = new System.Drawing.Size(234, 30);
+            this.textBoxJobTitle.Size = new System.Drawing.Size(267, 26);
             this.textBoxJobTitle.TabIndex = 4;
             // 
             // textBoxCompany
             // 
-            this.textBoxCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCompany.Location = new System.Drawing.Point(427, 30);
+            this.textBoxCompany.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCompany.Location = new System.Drawing.Point(411, 25);
+            this.textBoxCompany.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCompany.Name = "textBoxCompany";
-            this.textBoxCompany.Size = new System.Drawing.Size(357, 30);
+            this.textBoxCompany.Size = new System.Drawing.Size(287, 26);
             this.textBoxCompany.TabIndex = 5;
             // 
             // ButtonSettings
             // 
-            this.ButtonSettings.Location = new System.Drawing.Point(12, 334);
+            this.ButtonSettings.Location = new System.Drawing.Point(9, 317);
+            this.ButtonSettings.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonSettings.Name = "ButtonSettings";
-            this.ButtonSettings.Size = new System.Drawing.Size(152, 48);
+            this.ButtonSettings.Size = new System.Drawing.Size(114, 39);
             this.ButtonSettings.TabIndex = 6;
             this.ButtonSettings.Text = "Settings";
             this.ButtonSettings.UseVisualStyleBackColor = true;
@@ -111,9 +118,10 @@
             // 
             // ButtonExit
             // 
-            this.ButtonExit.Location = new System.Drawing.Point(12, 388);
+            this.ButtonExit.Location = new System.Drawing.Point(9, 361);
+            this.ButtonExit.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonExit.Name = "ButtonExit";
-            this.ButtonExit.Size = new System.Drawing.Size(152, 48);
+            this.ButtonExit.Size = new System.Drawing.Size(114, 39);
             this.ButtonExit.TabIndex = 7;
             this.ButtonExit.Text = "Exit";
             this.ButtonExit.UseVisualStyleBackColor = true;
@@ -121,9 +129,10 @@
             // 
             // ButtonOpenHTML
             // 
-            this.ButtonOpenHTML.Location = new System.Drawing.Point(12, 120);
+            this.ButtonOpenHTML.Location = new System.Drawing.Point(9, 98);
+            this.ButtonOpenHTML.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonOpenHTML.Name = "ButtonOpenHTML";
-            this.ButtonOpenHTML.Size = new System.Drawing.Size(152, 48);
+            this.ButtonOpenHTML.Size = new System.Drawing.Size(114, 39);
             this.ButtonOpenHTML.TabIndex = 8;
             this.ButtonOpenHTML.Text = "Open HTML";
             this.ButtonOpenHTML.UseVisualStyleBackColor = true;
@@ -132,44 +141,162 @@
             // labelJobTitle
             // 
             this.labelJobTitle.AutoSize = true;
-            this.labelJobTitle.Location = new System.Drawing.Point(184, 12);
+            this.labelJobTitle.Location = new System.Drawing.Point(138, 10);
+            this.labelJobTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelJobTitle.Name = "labelJobTitle";
-            this.labelJobTitle.Size = new System.Drawing.Size(53, 16);
+            this.labelJobTitle.Size = new System.Drawing.Size(43, 13);
             this.labelJobTitle.TabIndex = 9;
             this.labelJobTitle.Text = "Job title";
             // 
             // labelCompany
             // 
             this.labelCompany.AutoSize = true;
-            this.labelCompany.Location = new System.Drawing.Point(424, 12);
+            this.labelCompany.Location = new System.Drawing.Point(411, 10);
+            this.labelCompany.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCompany.Name = "labelCompany";
-            this.labelCompany.Size = new System.Drawing.Size(65, 16);
+            this.labelCompany.Size = new System.Drawing.Size(51, 13);
             this.labelCompany.TabIndex = 10;
             this.labelCompany.Text = "Company";
             // 
             // labelCreationDate
             // 
             this.labelCreationDate.AutoSize = true;
-            this.labelCreationDate.Location = new System.Drawing.Point(184, 91);
+            this.labelCreationDate.Location = new System.Drawing.Point(138, 158);
+            this.labelCreationDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCreationDate.Name = "labelCreationDate";
-            this.labelCreationDate.Size = new System.Drawing.Size(87, 16);
+            this.labelCreationDate.Size = new System.Drawing.Size(70, 13);
             this.labelCreationDate.TabIndex = 11;
             this.labelCreationDate.Text = "Creation date";
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(307, 91);
+            this.labelName.Location = new System.Drawing.Point(234, 158);
+            this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(44, 16);
+            this.labelName.Size = new System.Drawing.Size(35, 13);
             this.labelName.TabIndex = 12;
             this.labelName.Text = "Name";
             // 
+            // listBoxJobsInProgress
+            // 
+            this.listBoxJobsInProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxJobsInProgress.FormattingEnabled = true;
+            this.listBoxJobsInProgress.ItemHeight = 20;
+            this.listBoxJobsInProgress.Location = new System.Drawing.Point(140, 173);
+            this.listBoxJobsInProgress.Margin = new System.Windows.Forms.Padding(2);
+            this.listBoxJobsInProgress.Name = "listBoxJobsInProgress";
+            this.listBoxJobsInProgress.Size = new System.Drawing.Size(558, 224);
+            this.listBoxJobsInProgress.TabIndex = 13;
+            this.listBoxJobsInProgress.SelectedIndexChanged += new System.EventHandler(this.ListBoxJobsInProgress_SelectedIndexChanged);
+            // 
+            // labelActiveJobPath
+            // 
+            this.labelActiveJobPath.AutoSize = true;
+            this.labelActiveJobPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActiveJobPath.Location = new System.Drawing.Point(14, 16);
+            this.labelActiveJobPath.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelActiveJobPath.Name = "labelActiveJobPath";
+            this.labelActiveJobPath.Size = new System.Drawing.Size(14, 17);
+            this.labelActiveJobPath.TabIndex = 14;
+            this.labelActiveJobPath.Text = "-";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(11, 189);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 31);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // labelNamn
+            // 
+            this.labelNamn.AutoSize = true;
+            this.labelNamn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNamn.Location = new System.Drawing.Point(49, 42);
+            this.labelNamn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelNamn.Name = "labelNamn";
+            this.labelNamn.Size = new System.Drawing.Size(12, 16);
+            this.labelNamn.TabIndex = 16;
+            this.labelNamn.Text = "-";
+            // 
+            // labelTele
+            // 
+            this.labelTele.AutoSize = true;
+            this.labelTele.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTele.Location = new System.Drawing.Point(49, 68);
+            this.labelTele.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTele.Name = "labelTele";
+            this.labelTele.Size = new System.Drawing.Size(12, 16);
+            this.labelTele.TabIndex = 17;
+            this.labelTele.Text = "-";
+            // 
+            // labelEmail
+            // 
+            this.labelEmail.AutoSize = true;
+            this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Location = new System.Drawing.Point(233, 66);
+            this.labelEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmail.Name = "labelEmail";
+            this.labelEmail.Size = new System.Drawing.Size(12, 16);
+            this.labelEmail.TabIndex = 18;
+            this.labelEmail.Text = "-";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.labelEmail);
+            this.groupBox1.Controls.Add(this.labelTele);
+            this.groupBox1.Controls.Add(this.labelNamn);
+            this.groupBox1.Controls.Add(this.labelActiveJobPath);
+            this.groupBox1.Location = new System.Drawing.Point(141, 56);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(556, 99);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Contact info";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(199, 68);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "Mail:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Phone:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Name:";
+            // 
             // MainJobApplyOrganizer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(709, 408);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.listBoxJobsInProgress);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.labelCreationDate);
             this.Controls.Add(this.labelCompany);
@@ -182,20 +309,20 @@
             this.Controls.Add(this.ButtonMoveToArkiv);
             this.Controls.Add(this.ButtonUpdate);
             this.Controls.Add(this.ButtonNew);
-            this.Controls.Add(this.listViewJobs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainJobApplyOrganizer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JobApplyOrganizer";
             this.Load += new System.EventHandler(this.MainJobApplyOrganizer_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listViewJobs;
         private System.Windows.Forms.Button ButtonNew;
         private System.Windows.Forms.Button ButtonUpdate;
         private System.Windows.Forms.Button ButtonMoveToArkiv;
@@ -208,6 +335,16 @@
         private System.Windows.Forms.Label labelCompany;
         private System.Windows.Forms.Label labelCreationDate;
         private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.ListBox listBoxJobsInProgress;
+        private System.Windows.Forms.Label labelActiveJobPath;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelNamn;
+        private System.Windows.Forms.Label labelTele;
+        private System.Windows.Forms.Label labelEmail;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

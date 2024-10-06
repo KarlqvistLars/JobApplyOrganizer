@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileControl.cs" />
     <Compile Include="JobApplication.cs" />
     <Compile Include="MainJobApplyOrganizer.cs">
       <SubType>Form</SubType>
@@ -68,6 +69,7 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities.cs" />
     <EmbeddedResource Include="MainJobApplyOrganizer.resx">
       <DependentUpon>MainJobApplyOrganizer.cs</DependentUpon>
     </EmbeddedResource>
