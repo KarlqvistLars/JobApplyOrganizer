@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace JobApplyOrganizer
 {
     public class MakeHTML
     {
+        String[] kontakt = new String[4];
+        Utilities Util = new Utilities();
         enum Type
         {
             TXT_Small = 0,
@@ -23,39 +26,51 @@ namespace JobApplyOrganizer
         public MakeHTML()
         {
         }
-
-        public void CreateHTML(String pagename, String installpath, DateTime date)
+        public string CreateHTML(String[] fileList, String pagename, String jobPath, String templatePath, DateTime date)
         {
-            String jobPath = installpath + "\\P" + date.ToString("yyyyMMdd") + "_" + pagename + "\\";
-            string templatePath = installpath + "\\Templates\\";
-            if (!Directory.Exists(jobPath))
-            {
-                Directory.CreateDirectory(jobPath);
-                CopyDirectory(templatePath, jobPath, true);
-            }
-            String fullpath = jobPath + pagename + ".html";
-            Console.WriteLine(fullpath);
-
+            String fullpath = jobPath +"\\"+ pagename + ".html";
+            fullpath = Util.CleanPath(fullpath, "\\\\", "\\");
             //Pass the filepath and filename to the StreamWriter Constructor
             if (!File.Exists(fullpath))
             {
                 // TODO: SKapa loop med hjälp av inlästa biblioteks sorter
-                String[] txtFiles = SearchFolders(Type.TXT, installpath);
-                //String[] pdfFiles = SearchFolders(Type.PDF, installpath);
-
-                MakeHeader(pagename, fullpath);
-                MakeBodyPart(Type.TXT_Small, pagename, fullpath, "Kontakt.txt");
+                MakeHeader(pagename, fullpath.Replace("\\\\","\\"));
+                foreach (var file in fileList)
+                {
+                    if (file.Contains("Kontakt.txt"))
+                    {
+                        MakeBodyPart(Type.TXT_Small, pagename, fullpath, Util.CleanPath(jobPath+"Kontakt.txt","\\\\","\\"));
+                        Console.WriteLine("In MakeHTML rad 42 fullpath: {0}", fullpath);
+                    }
+                }
+                foreach (var file in fileList)
+                {
+                    if (file.Contains(".pdf"))
+                    {
+                        String temp = file.Replace(jobPath, "");
+                        MakeBodyPart(Type.PDF, pagename, fullpath, file);
+                    }
+                }
+                foreach (var file in fileList)
+                {
+                    if (file.Contains(".txt") && !(file.Contains("Kontakt.txt")))
+                    {
+                        String temp = file.Replace(jobPath, "");
+                        MakeBodyPart(Type.TXT, pagename, fullpath, file);
+                    }
+                }
                 MakeFooter(pagename, fullpath);
             }
             else
             {
                 Console.WriteLine("File already exist");
             }
+            return jobPath+"\\Kontakt.txt";
         }
-
         public void MakeHeader(String title, String fullpath)
         {
             // Create a file to write to.
+            Console.WriteLine("Make Header");
             using (StreamWriter sw = File.CreateText(fullpath))
             {
                 try
@@ -63,11 +78,34 @@ namespace JobApplyOrganizer
                     //Write a line of text
                     sw.WriteLine("<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"cp-1252\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>" + title + "</title>\n");
                     sw.WriteLine("<link href=\"https:\\\\fonts.googleapis.com\\css2?family=Poppins:wght@400;500;600&display=swap\"\nrel=\"stylesheet\"/>");
-                    sw.WriteLine("<style>\nbody {\nmargin: 15px; margin-left: 200px; \nbackground:  white;\nfont-family: \"Euclid Circular A\", \"Poppins\";\ncolor: #121212;\nheight: 100vh;\n}\n");
-                    sw.WriteLine("footer {\r\nwidth: 110%;\r\nbackground-color: blue;\r\ncolor: white;\r\npadding-left: 200px;\r\ntranslate: -200px;\r\n}\n");
-                    sw.WriteLine("a:link {\ncolor: #121212;\ntext-decoration: none;\n}\na:hover {\ncolor: #121212;\ntext-decoration: none;\nfont-weight: 900;\n}\na:visited {\ntext-decoration: none;\ncolor: #121212;\n}\n");
-                    sw.WriteLine(".pdf-button { \nheight: 30px;\nwidth: 100px;\n margin-left: 10px; \n translate: 0 -15px; \n}");
-                    sw.WriteLine("</style>\n</head>\n<body>\n<h3>Content in " + fullpath + "</h3>\n");
+                    sw.WriteLine("<style>\nbody " +
+                        "{\nmargin: 15px; " +
+                        "margin-left: 200px;" +
+                        " \nbackground: " +
+                        " white;\nfont-family: \"Euclid Circular A\", \"Poppins\";" +
+                        "\ncolor: #121212;" +
+                        "\nheight: 100vh;\n}" +
+                        "\n");
+                    sw.WriteLine("footer {\nwidth: 110%;" +
+                        "\nbackground-color: blue;\ncolor: white;" +
+                        "\npadding-left: 200px;" +
+                        "\ntranslate: -200px;" +
+                        "\n}\n");
+                    sw.WriteLine(".smf { \nfont-size: small\n}");
+                    sw.WriteLine("a:link {\ncolor: #121212;\n" +
+                        "text-decoration: none;\n}\na:hover {\ncolor: #121212;\n" +
+                        "text-decoration: none;\n" +
+                        "font-weight: 900;\n}\n" +
+                        "a:visited {\n" +
+                        "text-decoration: none;\n" +
+                        "color: #121212;\n}\n");
+                    sw.WriteLine(".pdf-button { \n" +
+                        "height: 30px;\n" +
+                        "width: 100px;\n " +
+                        "margin-left: 10px; \n " +
+                        "translate: 0 -15px; \n}");
+                    sw.WriteLine("</style>\n</head>\n" +
+                        "<body>\n<h3>Content in <br>\r\n<div class=\"smf\"> " + fullpath + "</div></h3>\n");
                     //Close the file
                     sw.Close();
                 }
@@ -81,32 +119,83 @@ namespace JobApplyOrganizer
                 }
             }
         }
-
         public void MakeBodyPart(Enum type, String title, String fullpath, String file)
         {
             Console.WriteLine("Make body");
-            using (StreamWriter sw = File.AppendText(fullpath))
+            if (type.ToString() == Type.TXT_Small.ToString())
             {
-                try
+                using (StreamWriter sw = File.AppendText(fullpath))
                 {
-                    //Pass the filepath and filename to the StreamWriter Constructor
-                    //Write a line of text
-                    sw.WriteLine("<iframe class =\"pdf\" src=\"" + file + "\" width = \"800\" height = \"500\" ></iframe >\n");
-                    sw.WriteLine("<a href=\"" + file + "\"; target=\"_blank\">\n<button class=\"pdf-button\">\nOpen\n</button></a></br></br>\n");
-                    //Close the file
-                    sw.Close();
+                    try
+                    {
+                        String path = file;
+                        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+path+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+                        OpenKontaktTXT(path);
+                        //Pass the filepath and filename to the StreamWriter Constructor
+                        //Write a line of text
+                        sw.WriteLine("<iframe class =\"pdf\" src=\"" + file + "\" width = \"800\" height = \"120\" ></iframe ></br></br>\n");
+                        sw.WriteLine("<a href=\"" + String.Format("{0}",kontakt[3]).Trim()  + "\"; target=\"_blank\">Jobb annonsen</a></br></br>\n");
+                        //Close the file
+                        sw.Close();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Exception: " + e.Message);
+                    }
+                    finally
+                    {
+                        Console.WriteLine("Executing finally block.");
+                    }
+
                 }
-                catch (Exception e)
+            } else if (type.ToString() == Type.PDF.ToString())
+            {
+                using (StreamWriter sw = File.AppendText(fullpath))
                 {
-                    Console.WriteLine("Exception: " + e.Message);
+                    try
+                    {
+                        //Pass the filepath and filename to the StreamWriter Constructor
+                        //Write a line of text
+                        sw.WriteLine("<iframe class =\"pdf\" src=\"" + file + "\" width = \"800\" height = \"500\" ></iframe >\n");
+                        sw.WriteLine("<a href=\"" + file + "\"; target=\"_blank\">\n<button class=\"pdf-button\">\nOpen\n</button></a></br></br>\n");
+                        //Close the file
+                        sw.Close();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Exception: " + e.Message);
+                    }
+                    finally
+                    {
+                        Console.WriteLine("Executing finally block.");
+                    }
                 }
-                finally
+            }
+            else if (type.ToString() == Type.TXT.ToString())
+            {
+                using (StreamWriter sw = File.AppendText(fullpath))
                 {
-                    Console.WriteLine("Executing finally block.");
+                    try
+                    {
+                        //Pass the filepath and filename to the StreamWriter Constructor
+                        //Write a line of text
+                        sw.WriteLine("<iframe class =\"pdf\" src=\"" + file + "\" width = \"800\" height = \"250\" ></iframe >\n");
+                        sw.WriteLine("<a href=\"" + file + "\"; target=\"_blank\">\n<button class=\"pdf-button\">\nOpen\n</button></a></br></br>\n");
+                        //Close the file
+                        sw.Close();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Exception: " + e.Message);
+                    }
+                    finally
+                    {
+                        Console.WriteLine("Executing finally block.");
+
+                    }
                 }
             }
         }
-
         public void MakeFooter(String title, String fullpath)
         {
             Console.WriteLine("Make Footer");
@@ -130,7 +219,6 @@ namespace JobApplyOrganizer
                 }
             }            
         }
-
         static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
         {
             // Get information about the source directory
@@ -163,12 +251,12 @@ namespace JobApplyOrganizer
                 }
             }
         }
-
         String[] SearchFolders(Enum type, String path)
         {
             // TODO: Sök jobbibiloteket efter ingående
             List<string> searchFiles = Directory.GetFiles(path, "*.*").ToList();
             List<string> searchDirs = Directory.GetDirectories(path, "*.*").ToList();
+            Console.WriteLine(path);
 
             foreach (string files in searchFiles)
             {
@@ -187,6 +275,54 @@ namespace JobApplyOrganizer
             }
 
             return new String[] { "", "" };
+        }
+        void OpenKontaktTXT(String path)
+        {
+            String line;
+            Console.WriteLine("##########  "+path);
+            try
+            {
+                //Pass the file path and file name to the StreamReader constructor
+                StreamReader sr = new StreamReader(path);
+                //Read the first line of text
+                line = sr.ReadLine();
+                //Continue to read until you reach end of file
+                while (line != null)
+                {
+                    if (line.StartsWith("Namn:"))
+                    {
+                        kontakt[0] = line.Remove(0, 5);
+                    }
+                    else if (line.StartsWith("Tele:"))
+                    {
+                        kontakt[1] = line.Remove(0, 5);
+                    }
+                    else if (line.StartsWith("Mail:"))
+                    {
+                        kontakt[2] = line.Remove(0, 5);
+                    }
+                    else if (line.StartsWith("URL:"))
+                    {
+                        kontakt[3] = line.Remove(0, 4);
+                        Console.WriteLine(" URL link: {0}", kontakt[3]);
+                    }
+                    //write the line to console window
+                    Console.WriteLine(line + "från Kontakt.txt");
+                    //Read the next line
+                    line = sr.ReadLine();
+                }
+                //close the file
+                sr.Close();
+                Console.ReadLine();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Executing finally block.");
+            }
         }
     }
 }
