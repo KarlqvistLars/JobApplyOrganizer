@@ -11,37 +11,36 @@ namespace JobApplyOrganizer
 {
     internal class Utilities
     {
- 
-        static bool _setting = false;
+        //readonly static bool _setting = false;
         public Utilities()
         {
         }
-
         public String CleanPath(String path, String StringIN, String StringUT)
         {
             String pathCleaned = path.Replace(StringIN, StringUT);
             return pathCleaned;
         }
-
-        public String[] CreateJobPath(String templatePath, String jobPath)
+        public String[] CreateJobPath(String programLocationPath, String templatePath, String jobPath)
         {
+            // ifall job biblioteket ändras behöver men flytta ny templats till detta. 
+            if (!Directory.Exists(templatePath))
+            {
+                Directory.CreateDirectory(templatePath);
+                CopyDirectory(programLocationPath + @"\Templates\", templatePath, true);
+            }
+
             if (!Directory.Exists(jobPath))
             {
                 Directory.CreateDirectory(jobPath);
                 CopyDirectory(templatePath, jobPath, true);
             }
             String[] fileList = Directory.GetFiles(jobPath);
-            foreach (var file in fileList)
-            {
-                Console.WriteLine(file);
-            }
             return fileList;
         }
-
         public String[] OpenKontaktTXT(String path, String[] kontakt)
         {
             String line;
-            Console.WriteLine(String.Format("### OpenKontaktTXT()\n### {0}\n### {1}\n### {2}\n### {3}\n### {4}", path, kontakt[0], kontakt[1], kontakt[2], kontakt[3]));
+            //Console.WriteLine(String.Format("### OpenKontaktTXT()\n### {0}\n### {1}\n### {2}\n### {3}\n### {4}", path, kontakt[0], kontakt[1], kontakt[2], kontakt[3]));
             try
             {
                 //Pass the file path and file name to the StreamReader constructor
@@ -66,7 +65,7 @@ namespace JobApplyOrganizer
                     else if (line.StartsWith("URL:"))
                     {
                         kontakt[3] = line.Remove(0, 4);
-                        Console.WriteLine(" URL link: {0}", kontakt[3]);
+                        //Console.WriteLine(" URL link: {0}", kontakt[3]);
                     }
                     //Read the next line
                     line = sr.ReadLine();
@@ -85,12 +84,11 @@ namespace JobApplyOrganizer
             }
             return kontakt;
         }
-
         static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
         {
             // Get information about the source directory
             var dir = new DirectoryInfo(sourceDir);
-
+            bool T = dir.Exists;
             // Check if the source directory exists
             if (!dir.Exists)
                 throw new DirectoryNotFoundException($"Source directory not found: {dir.FullName}");

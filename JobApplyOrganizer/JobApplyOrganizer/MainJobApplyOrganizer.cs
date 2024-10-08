@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -16,17 +18,12 @@ namespace JobApplyOrganizer
     {
         // parameters
         List<JobApplication> jobList = new List<JobApplication>();
-
-        //FileControl fileControl;
-        String installpath = "";
         String programLocationPath = Environment.GetCommandLineArgs()[0].Replace("JobApplyOrganizer.exe", "");
-        
         String workingdir = null;
         String OpenHTML = null;
         int selectedIndex = 0;
         String[] kontakt = new String[4];
-        Utilities utils = new Utilities();
-
+        readonly Utilities utils = new Utilities();
         enum FileOp
         {
             SAVE = 0,
@@ -40,18 +37,34 @@ namespace JobApplyOrganizer
         public MainJobApplyOrganizer()
         {
             InitializeComponent();
-            // this.listBoxJobsInProgress.DataSource = jobList;
+            //string folder = Directory.GetCurrentDirectory();
+
+            //DirectorySecurity ds = Directory.GetAccessControl(folder);
+            //Everyone is important
+            //because rights for all users!
+            //ds.AddAccessRule(new FileSystemAccessRule("Everyone", FileSystemRights.Read | FileSystemRights.Write, AccessControlType.Allow));
+            //workingdir = workingD;
+            // this.listBoxJobsInProgress.DataSource = jobList;*/
         }
         // Buttons
         private void MainJobApplyOrganizer_Load(object sender, EventArgs e)
         {
             // TODO: Vad händer vid program start? LAdda bibliotek samt pojekt mm.
-            Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< PROGRAM START >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-            Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+            Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>");
+            Console.WriteLine("<<<<<<<<<<<<<< PROGRAM START >>>>>>>>>>>>>>");
+            Console.WriteLine("<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>");
             Console.WriteLine(programLocationPath);
             LoadConfig();
-            PopulateListBox(installpath);
+            string root = @"C:\Tools\JobApplyOrganizer\Jobs\";
+            // If directory does not exist, don't even try   
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+                //Directory.CreateDirectory(root + @"Templates\");
+                utils.CreateJobPath(programLocationPath, programLocationPath + @"Templates\", root + @"Templates\");
+            }
+            PopulateListBox(workingdir);
+
         }
         private void ButtonNew_Click(object sender, EventArgs e)
         {
@@ -64,38 +77,63 @@ namespace JobApplyOrganizer
             if (textBoxJobTitle.Text != "" && newJob)
             {
                 JobApplication jobApplication = new JobApplication();
-                String[] payload = new string[6];
+                String[] payload = new string[7];
                 payload[0] = textBoxJobTitle.Text;
                 payload[1] = textBoxCompany.Text;
                 payload[2] = "";
                 payload[3] = "";
                 payload[4] = "";
                 payload[5] = "";
-                NewJobProject newJobProject = new NewJobProject(Type.NEW, payload, jobApplication, installpath);
-                newJobProject.ShowDialog();
+                payload[6] = "";
+                NewJobProject newJobProject = new NewJobProject(Type.NEW, payload, jobApplication, workingdir, programLocationPath);
+                if(newJobProject.ShowDialog() == DialogResult.OK)
+                {
+                    PopulateListBox(workingdir);
+                }
             }
             listBoxJobsInProgress.Items.Clear();
-            PopulateListBox(installpath);
+            PopulateListBox(workingdir);
         }
         private void ButtonUpdate_Click(object sender, EventArgs e) 
         {
             // TODO: Skapa denna funktion Updatera
-            LoadActiveContact();
+            String activPath = LoadActiveContact();
+            Console.WriteLine(activPath);
+            int index = 0;
+            string datum = "";
+            foreach (var item in listBoxJobsInProgress.Items)
+            {
+                if (index == selectedIndex)
+                {
+                    datum = item.ToString().Substring(0,8);
+
+                }
+                index++;
+            };
+
+
             if (textBoxJobTitle.Text != "")
             {
                 JobApplication jobApplication = new JobApplication();
-                String[] payload = new string[6];
-                payload[0] = textBoxJobTitle.Text;
-                payload[1] = textBoxCompany.Text;
+                String[] payload = new string[7];
+                jobApplication.Name = textBoxJobTitle.Text;
+                jobApplication.Company = textBoxCompany.Text;
+                jobApplication.Path = activPath;
+                //Console.WriteLine(jobApplication.Path);
+                payload[0] = jobApplication.Name;
+                payload[1] = jobApplication.Company;
                 payload[2] = kontakt[0];
                 payload[3] = kontakt[1];
                 payload[4] = kontakt[2];
                 payload[5] = kontakt[3];
-                NewJobProject newJobProject = new NewJobProject(Type.EDIT, payload, jobApplication, installpath);
+                payload[6] = datum;
+            Console.WriteLine("ZZZZZZZZZZZZZ  "+datum);
+                NewJobProject newJobProject = new NewJobProject(Type.EDIT, payload, jobApplication, workingdir, programLocationPath);
+                Console.WriteLine(workingdir + " - WD\n" + programLocationPath + " - PLP");
                 newJobProject.ShowDialog();
             }
             listBoxJobsInProgress.Items.Clear();
-            PopulateListBox(installpath);
+            PopulateListBox(workingdir);
             Console.WriteLine("\n***** Post is Updated *****\n");
         }
         private void ButtonOpenHTML_Click(object sender, EventArgs e)
@@ -151,7 +189,7 @@ namespace JobApplyOrganizer
                     }
                     Directory.Delete(temp);
                     listBoxJobsInProgress.Items.Clear();
-                    PopulateListBox(installpath);
+                    PopulateListBox(workingdir);
                     textBoxJobTitle.Clear();
                     textBoxCompany.Clear();
                 }
@@ -162,9 +200,16 @@ namespace JobApplyOrganizer
         }
         private void ButtonSettings_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings(workingdir);
-            settings.ShowDialog();
-            workingdir = settings.Workingdir;
+            String templatePath = workingdir + "\\Templates\\";
+            Settings settings = new Settings(workingdir, templatePath);
+            if (settings.ShowDialog() == DialogResult.OK)
+            {
+                workingdir =  settings.Workingdir;
+                //MessageBox.Show(settings.Workingdir);
+                Console.WriteLine("Test "+workingdir);
+                PopulateListBox(workingdir);
+                SaveConfig();
+            }
         }
         private void ButtonExit_Click(object sender, EventArgs e)
         {
@@ -180,26 +225,22 @@ namespace JobApplyOrganizer
                 //Pass the file path and file name to the StreamReader constructor
                 //StreamReader sr = new StreamReader((programLocationPath+"config.txt").Replace("\\", "\\\\"));
                 StreamReader sr = new StreamReader(".\\config.txt");
-                Console.WriteLine((programLocationPath + "config.txt").Replace("\\", "\\\\"));
+                //Console.WriteLine((programLocationPath + "config.txt").Replace("\\", "\\\\"));
                 //Read the first line of text
                 line = sr.ReadLine();
                 //Continue to read until you reach end of file
                 while (line != null)
                 {
-                    //write the line to console window
-                    Console.WriteLine("ooo"+line);
-                    Console.WriteLine(line + " init");
-                    //Read the next line
-                    installpath = "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\TestSandbox\\";
-                    installpath = line;
+                    workingdir = line;
                     line = sr.ReadLine();
                     //installpath = line;
                 }
                 //close the file
                 sr.Close();
                 Console.ReadLine();
-                Console.WriteLine(installpath);
-                workingdir = "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\TestSandbox\\";
+                //Console.WriteLine(installpath);
+                //workingdir = installpath;
+                    //"C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\TestSandbox\\";
             }
             catch (Exception e)
             {
@@ -212,12 +253,15 @@ namespace JobApplyOrganizer
         }
         private void SaveConfig()
         {
-            File.Delete(programLocationPath + "config.txt");
+            // TODO: Updatera filhanteringen till 
+            //File.Delete(programLocationPath + "config.txt");
+            workingdir = utils.CleanPath(workingdir, "\\\\", "\\");
             using (StreamWriter sw = File.CreateText(programLocationPath + "config.txt"))
             {
                 try
                 {
-                    sw.WriteLine(installpath);
+                    sw.WriteLine(workingdir);
+                    //Console.WriteLine(" TTT "+ workingdir);
                     sw.Close();
                 }
                 catch (Exception e)
@@ -230,7 +274,7 @@ namespace JobApplyOrganizer
                 }
             }
         }
-        private void LoadActiveContact()
+        private String LoadActiveContact()
         {
             String path = "";
             foreach (var item in jobList)
@@ -243,6 +287,7 @@ namespace JobApplyOrganizer
             }
             Console.WriteLine("\n\n LoadActiveContact() "+ path);
             kontakt = utils.OpenKontaktTXT(path, kontakt);
+            return path;
         }
         private List<JobApplication> ScanJobsPath(String path)
         {
@@ -258,7 +303,7 @@ namespace JobApplyOrganizer
                 job.Path = f;
 
                 //jobList = FilterActiveJobSearch(jobList);
-                Console.WriteLine(f + "HÄR SKA DET IN");
+                //Console.WriteLine(f + "HÄR SKA DET IN");
 
                 if (folder.Contains("\\P20"))
                 {
@@ -270,7 +315,7 @@ namespace JobApplyOrganizer
                     job.Name = jobPart[1];
                     job.Company = jobPart[2];
                     job.Htmlname = job.Path.Replace("\\\\", "\\") + "\\" + job.Name + "_" + job.Company + ".html";
-                    Console.WriteLine(String.Format("1 {0}, 2 {1}, 3 {2}, 4 {3}\n", job.Path, job.Name, job.Company, job.Htmlname));
+                    //Console.WriteLine(String.Format("1 {0}, 2 {1}, 3 {2}, 4 {3}\n", job.Path, job.Name, job.Company, job.Htmlname));
                     jobList.Add(job);
                 }
             }
@@ -279,6 +324,7 @@ namespace JobApplyOrganizer
         }
         private void PopulateListBox(String installpath)
         {
+            this.listBoxJobsInProgress.Items.Clear();
             jobList = ScanJobsPath(installpath);
 
             foreach (var item in jobList)
@@ -287,27 +333,27 @@ namespace JobApplyOrganizer
                 {
                     String populatelist = (item.Path).Split('\\')[(item.Path).Split('\\').Count() - 1];
                     populatelist = populatelist.Replace("P2", "2");
-                    Console.WriteLine(populatelist.IndexOf("_"));
+                    //Console.WriteLine(populatelist.IndexOf("_"));
                     String list1 = populatelist.Substring(0, 8);
                     String list2 = populatelist.Remove(0, 9);
                     populatelist = list1 + "   " + list2;
                     this.listBoxJobsInProgress.Items.Add(populatelist);
                 }
             }
-
         }
         private void ListBoxJobsInProgress_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PopulateListBox(installpath);
+            //PopulateListBox(workingdir);
             //this.listBoxJobsInProgress.Update();
             int count = 0;
-            int len = installpath.Length;
+            int len = workingdir.Length;
             foreach (var item in jobList)
             {
                 if (count == listBoxJobsInProgress.SelectedIndex)
                 {
                     selectedIndex = listBoxJobsInProgress.SelectedIndex;
-                    labelActiveJobPath.Text = item.Path.Remove(0, len - 2);
+                    string tempPath = utils.CleanPath( item.Path,"\\\\","\\");
+                    labelActiveJobPath.Text = tempPath.Remove(0, len+1 );
                     textBoxJobTitle.Text = item.Name;
                     textBoxCompany.Text = item.Company;
                     OpenHTML = item.Path + "\\" + textBoxJobTitle.Text + ".html";
@@ -315,16 +361,16 @@ namespace JobApplyOrganizer
                 }
                 count++;
             }
-           listBoxJobsInProgress.Items.Clear();
-           PopulateListBox(installpath);
+           //listBoxJobsInProgress.Items.Clear();
+            PopulateListBox(workingdir);
             //this.listBoxJobsInProgress.Update();
-            this.label1.Text = selectedIndex.ToString();
+            this.label1.Text = selectedIndex.ToString();    
         }
         private void ContactsUpdate(string path, int file)
         {
             path = path + "\\Kontakt.txt";
             path = path.Replace("\\", "\\\\");
-            Console.WriteLine(path);
+            //Console.WriteLine(path);
             if (file == 0)
             {
                 String line;
@@ -360,7 +406,7 @@ namespace JobApplyOrganizer
                             kontakt[3] = line.Remove(0, 4);
                         }
                         //write the line to console window
-                        Console.WriteLine(line + "från Kontakt.txt");
+                        //Console.WriteLine(line + "från Kontakt.txt");
                         //Read the next line
                         line = sr.ReadLine();
                     }
@@ -458,12 +504,6 @@ namespace JobApplyOrganizer
                     CopyDirectory(subDir.FullName, newDestinationDir, true);
                 }
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            String fileName = "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\TestSandbox\\P20241005_Tester_Volvo2\\Kontakt.txt";
-            Process.Start("notepad.exe", fileName);
         }
     }
 }

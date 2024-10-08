@@ -28,54 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelSelectWorkDir = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.textBoxWorkDir = new System.Windows.Forms.TextBox();
             this.buttonSelect = new System.Windows.Forms.Button();
             this.ButtonUpdate = new System.Windows.Forms.Button();
             this.ButtonCancel = new System.Windows.Forms.Button();
-            this.labelPrefixName = new System.Windows.Forms.Label();
-            this.labelPostfixName = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelTemplateDirectory = new System.Windows.Forms.Label();
+            this.buttonOpenDir = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labelSelectWorkDir
-            // 
-            this.labelSelectWorkDir.AutoSize = true;
-            this.labelSelectWorkDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSelectWorkDir.Location = new System.Drawing.Point(16, 15);
-            this.labelSelectWorkDir.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelSelectWorkDir.Name = "labelSelectWorkDir";
-            this.labelSelectWorkDir.Size = new System.Drawing.Size(176, 20);
-            this.labelSelectWorkDir.TabIndex = 0;
-            this.labelSelectWorkDir.Text = "Select working directory";
             // 
             // textBoxWorkDir
             // 
             this.textBoxWorkDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxWorkDir.Location = new System.Drawing.Point(20, 38);
-            this.textBoxWorkDir.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxWorkDir.Location = new System.Drawing.Point(6, 20);
+            this.textBoxWorkDir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxWorkDir.Name = "textBoxWorkDir";
-            this.textBoxWorkDir.Size = new System.Drawing.Size(572, 26);
+            this.textBoxWorkDir.Size = new System.Drawing.Size(764, 30);
             this.textBoxWorkDir.TabIndex = 1;
             // 
             // buttonSelect
             // 
-            this.buttonSelect.Location = new System.Drawing.Point(20, 67);
-            this.buttonSelect.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonSelect.Location = new System.Drawing.Point(6, 54);
+            this.buttonSelect.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(93, 35);
+            this.buttonSelect.Size = new System.Drawing.Size(124, 43);
             this.buttonSelect.TabIndex = 2;
             this.buttonSelect.Text = "Select";
             this.buttonSelect.UseVisualStyleBackColor = true;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+            this.buttonSelect.Click += new System.EventHandler(this.ButtonSelect_Click);
             // 
             // ButtonUpdate
             // 
-            this.ButtonUpdate.Location = new System.Drawing.Point(20, 175);
-            this.ButtonUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonUpdate.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.ButtonUpdate.Location = new System.Drawing.Point(18, 217);
+            this.ButtonUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonUpdate.Name = "ButtonUpdate";
-            this.ButtonUpdate.Size = new System.Drawing.Size(93, 35);
+            this.ButtonUpdate.Size = new System.Drawing.Size(124, 43);
             this.ButtonUpdate.TabIndex = 3;
             this.ButtonUpdate.Text = "Update";
             this.ButtonUpdate.UseVisualStyleBackColor = true;
@@ -83,88 +75,87 @@
             // 
             // ButtonCancel
             // 
-            this.ButtonCancel.Location = new System.Drawing.Point(118, 175);
-            this.ButtonCancel.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.ButtonCancel.Location = new System.Drawing.Point(148, 217);
+            this.ButtonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonCancel.Name = "ButtonCancel";
-            this.ButtonCancel.Size = new System.Drawing.Size(93, 35);
+            this.ButtonCancel.Size = new System.Drawing.Size(124, 43);
             this.ButtonCancel.TabIndex = 4;
             this.ButtonCancel.Text = "Cancel";
             this.ButtonCancel.UseVisualStyleBackColor = true;
             this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
-            // labelPrefixName
+            // groupBox1
             // 
-            this.labelPrefixName.AutoSize = true;
-            this.labelPrefixName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPrefixName.Location = new System.Drawing.Point(22, 111);
-            this.labelPrefixName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrefixName.Name = "labelPrefixName";
-            this.labelPrefixName.Size = new System.Drawing.Size(90, 20);
-            this.labelPrefixName.TabIndex = 5;
-            this.labelPrefixName.Text = "PrefixName";
+            this.groupBox1.Controls.Add(this.textBoxWorkDir);
+            this.groupBox1.Controls.Add(this.buttonSelect);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(776, 107);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Select Working Directory";
             // 
-            // labelPostfixName
+            // groupBox2
             // 
-            this.labelPostfixName.AutoSize = true;
-            this.labelPostfixName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPostfixName.Location = new System.Drawing.Point(22, 141);
-            this.labelPostfixName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPostfixName.Name = "labelPostfixName";
-            this.labelPostfixName.Size = new System.Drawing.Size(98, 20);
-            this.labelPostfixName.TabIndex = 6;
-            this.labelPostfixName.Text = "PostfixName";
+            this.groupBox2.Controls.Add(this.buttonOpenDir);
+            this.groupBox2.Controls.Add(this.labelTemplateDirectory);
+            this.groupBox2.Location = new System.Drawing.Point(12, 125);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(776, 78);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Open Template Directory";
             // 
-            // textBox2
+            // labelTemplateDirectory
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(118, 107);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(321, 26);
-            this.textBox2.TabIndex = 7;
+            this.labelTemplateDirectory.AutoSize = true;
+            this.labelTemplateDirectory.Location = new System.Drawing.Point(149, 35);
+            this.labelTemplateDirectory.Name = "labelTemplateDirectory";
+            this.labelTemplateDirectory.Size = new System.Drawing.Size(186, 20);
+            this.labelTemplateDirectory.TabIndex = 0;
+            this.labelTemplateDirectory.Text = "labelTemplateDirectory";
             // 
-            // textBox3
+            // buttonOpenDir
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(118, 136);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(321, 26);
-            this.textBox3.TabIndex = 8;
+            this.buttonOpenDir.Location = new System.Drawing.Point(6, 22);
+            this.buttonOpenDir.Name = "buttonOpenDir";
+            this.buttonOpenDir.Size = new System.Drawing.Size(124, 43);
+            this.buttonOpenDir.TabIndex = 1;
+            this.buttonOpenDir.Text = "Open";
+            this.buttonOpenDir.UseVisualStyleBackColor = true;
+            this.buttonOpenDir.Click += new System.EventHandler(this.buttonOpenDir_Click);
             // 
             // Settings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 228);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.labelPostfixName);
-            this.Controls.Add(this.labelPrefixName);
+            this.ClientSize = new System.Drawing.Size(800, 277);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.ButtonUpdate);
-            this.Controls.Add(this.buttonSelect);
-            this.Controls.Add(this.textBoxWorkDir);
-            this.Controls.Add(this.labelSelectWorkDir);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelSelectWorkDir;
         private System.Windows.Forms.TextBox textBoxWorkDir;
         private System.Windows.Forms.Button buttonSelect;
         private System.Windows.Forms.Button ButtonUpdate;
         private System.Windows.Forms.Button ButtonCancel;
-        private System.Windows.Forms.Label labelPrefixName;
-        private System.Windows.Forms.Label labelPostfixName;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button buttonOpenDir;
+        private System.Windows.Forms.Label labelTemplateDirectory;
     }
 }

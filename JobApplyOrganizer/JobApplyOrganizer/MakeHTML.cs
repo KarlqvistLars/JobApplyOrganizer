@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
 
 namespace JobApplyOrganizer
@@ -26,46 +27,53 @@ namespace JobApplyOrganizer
         public MakeHTML()
         {
         }
-        public string CreateHTML(String[] fileList, String pagename, String jobPath, String templatePath, DateTime date)
+        public string CreateHTML(String[] inDataHtml)
         {
-            String fullpath = jobPath +"\\"+ pagename + ".html";
+
+            String jobPath = inDataHtml[0];
+            String templatePath = inDataHtml[1];
+            String pagename = inDataHtml[7];
+            String programLocationPath = inDataHtml[8];
+
+            String[] fileList = Util.CreateJobPath(programLocationPath, templatePath, jobPath);
+
+            SaveKontaktTXT(inDataHtml); // jobPath
+            String fullpath = jobPath + "\\" + pagename + ".html";
             fullpath = Util.CleanPath(fullpath, "\\\\", "\\");
-            //Pass the filepath and filename to the StreamWriter Constructor
-            if (!File.Exists(fullpath))
+
+            // TODO: SKapa loop med hjälp av inlästa biblioteks sorter
+            MakeHeader(pagename, fullpath);
+            foreach (var file in fileList)
             {
-                // TODO: SKapa loop med hjälp av inlästa biblioteks sorter
-                MakeHeader(pagename, fullpath.Replace("\\\\","\\"));
-                foreach (var file in fileList)
+                if (file.Contains("Kontakt.txt"))
                 {
-                    if (file.Contains("Kontakt.txt"))
-                    {
-                        MakeBodyPart(Type.TXT_Small, pagename, fullpath, Util.CleanPath(jobPath+"Kontakt.txt","\\\\","\\"));
-                        Console.WriteLine("In MakeHTML rad 42 fullpath: {0}", fullpath);
-                    }
+                    MakeBodyPart(Type.TXT_Small, pagename, fullpath, Util.CleanPath(jobPath + "Kontakt.txt", "\\\\", "\\"));
+                    //Console.WriteLine("In MakeHTML rad 42 fullpath: {0}", fullpath);
                 }
-                foreach (var file in fileList)
-                {
-                    if (file.Contains(".pdf"))
-                    {
-                        String temp = file.Replace(jobPath, "");
-                        MakeBodyPart(Type.PDF, pagename, fullpath, file);
-                    }
-                }
-                foreach (var file in fileList)
-                {
-                    if (file.Contains(".txt") && !(file.Contains("Kontakt.txt")))
-                    {
-                        String temp = file.Replace(jobPath, "");
-                        MakeBodyPart(Type.TXT, pagename, fullpath, file);
-                    }
-                }
-                MakeFooter(pagename, fullpath);
             }
-            else
+            foreach (var file in fileList)
             {
-                Console.WriteLine("File already exist");
+                if (file.Contains(".pdf"))
+                {
+                    String temp = file.Replace(jobPath, "");
+                    MakeBodyPart(Type.PDF, pagename, fullpath, file);
+                }
             }
-            return jobPath+"\\Kontakt.txt";
+            foreach (var file in fileList)
+            {
+                if (file.Contains(".txt") && !(file.Contains("Kontakt.txt")))
+                {
+                    String temp = file.Replace(jobPath, "");
+                    MakeBodyPart(Type.TXT, pagename, fullpath, file);
+                }
+            }
+            MakeFooter(pagename, fullpath);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("File already exist");
+            //}
+            return jobPath + "\\Kontakt.txt";
         }
         public void MakeHeader(String title, String fullpath)
         {
@@ -121,7 +129,9 @@ namespace JobApplyOrganizer
         }
         public void MakeBodyPart(Enum type, String title, String fullpath, String file)
         {
-            Console.WriteLine("Make body");
+            Console.WriteLine("Make body \n" + fullpath);
+            String[] filename = file.Split('\\');
+            String name = filename[filename.Length - 1];
             if (type.ToString() == Type.TXT_Small.ToString())
             {
                 using (StreamWriter sw = File.AppendText(fullpath))
@@ -129,12 +139,12 @@ namespace JobApplyOrganizer
                     try
                     {
                         String path = file;
-                        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+path+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+                        //Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+path+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
                         OpenKontaktTXT(path);
                         //Pass the filepath and filename to the StreamWriter Constructor
                         //Write a line of text
                         sw.WriteLine("<iframe class =\"pdf\" src=\"" + file + "\" width = \"800\" height = \"120\" ></iframe ></br></br>\n");
-                        sw.WriteLine("<a href=\"" + String.Format("{0}",kontakt[3]).Trim()  + "\"; target=\"_blank\">Jobb annonsen</a></br></br>\n");
+                        sw.WriteLine("<a href=\"" + String.Format("{0}", kontakt[3]).Trim() + "\"; target=\"_blank\">Jobb annonsen</a></br></br>\n");
                         //Close the file
                         sw.Close();
                     }
@@ -148,7 +158,8 @@ namespace JobApplyOrganizer
                     }
 
                 }
-            } else if (type.ToString() == Type.PDF.ToString())
+            }
+            else if (type.ToString() == Type.PDF.ToString())
             {
                 using (StreamWriter sw = File.AppendText(fullpath))
                 {
@@ -156,6 +167,7 @@ namespace JobApplyOrganizer
                     {
                         //Pass the filepath and filename to the StreamWriter Constructor
                         //Write a line of text
+                        sw.WriteLine("<div class=\"smf\"><p>" + name + "</p></div>\n");
                         sw.WriteLine("<iframe class =\"pdf\" src=\"" + file + "\" width = \"800\" height = \"500\" ></iframe >\n");
                         sw.WriteLine("<a href=\"" + file + "\"; target=\"_blank\">\n<button class=\"pdf-button\">\nOpen\n</button></a></br></br>\n");
                         //Close the file
@@ -179,6 +191,7 @@ namespace JobApplyOrganizer
                     {
                         //Pass the filepath and filename to the StreamWriter Constructor
                         //Write a line of text
+                        sw.WriteLine("<div class=\"smf\"><p>" + name + "</p></div>\n");
                         sw.WriteLine("<iframe class =\"pdf\" src=\"" + file + "\" width = \"800\" height = \"250\" ></iframe >\n");
                         sw.WriteLine("<a href=\"" + file + "\"; target=\"_blank\">\n<button class=\"pdf-button\">\nOpen\n</button></a></br></br>\n");
                         //Close the file
@@ -198,6 +211,7 @@ namespace JobApplyOrganizer
         }
         public void MakeFooter(String title, String fullpath)
         {
+            String path = fullpath.Substring(0, fullpath.Length - (title.Length + 5));
             Console.WriteLine("Make Footer");
             using (StreamWriter sw = File.AppendText(fullpath))
             {
@@ -205,7 +219,9 @@ namespace JobApplyOrganizer
                 {
                     //Pass the filepath and filename to the StreamWriter Constructor
                     //Write a line of text
-                    sw.WriteLine("</body>\n<footer><br><p>Ansökan till " + title + "</p><br><br><br><br><br><br></footer></html>");
+                    sw.WriteLine("</body>\n<footer><br><p>Ansökan till " + title + "</p><br>" +
+                        "    <a href=\"" + path + "\" ; target=\"_blank\">\r\n<button class=\"pdf-button\">\r\n Open Path\r\n </button></a></br></br>" +
+                        "<br><br><br><br><br></footer></html>");
                     //Close the file
                     sw.Close();
                 }
@@ -217,7 +233,7 @@ namespace JobApplyOrganizer
                 {
                     Console.WriteLine("Executing finally block.");
                 }
-            }            
+            }
         }
         static void CopyDirectory(string sourceDir, string destinationDir, bool recursive)
         {
@@ -256,22 +272,22 @@ namespace JobApplyOrganizer
             // TODO: Sök jobbibiloteket efter ingående
             List<string> searchFiles = Directory.GetFiles(path, "*.*").ToList();
             List<string> searchDirs = Directory.GetDirectories(path, "*.*").ToList();
-            Console.WriteLine(path);
+            //Console.WriteLine(path);
 
             foreach (string files in searchFiles)
             {
                 String str1 = @"\\";
                 String str2 = @"\";
                 String f = files.Replace(str1, str2);
-                Console.WriteLine("Search test files + "+ f.ToString());
+                //Console.WriteLine("Search test files + "+ f.ToString());
             }
 
             foreach (string folder in searchDirs)
             {
                 String str1 = @"\\";
                 String str2 = @"\";
-                String f = folder.Replace(str1,str2);
-                Console.WriteLine("Search test Dirs + " + f.ToString());
+                String f = folder.Replace(str1, str2);
+                //Console.WriteLine("Search test Dirs + " + f.ToString());
             }
 
             return new String[] { "", "" };
@@ -279,7 +295,7 @@ namespace JobApplyOrganizer
         void OpenKontaktTXT(String path)
         {
             String line;
-            Console.WriteLine("##########  "+path);
+            //Console.WriteLine("##########  "+path);
             try
             {
                 //Pass the file path and file name to the StreamReader constructor
@@ -304,10 +320,10 @@ namespace JobApplyOrganizer
                     else if (line.StartsWith("URL:"))
                     {
                         kontakt[3] = line.Remove(0, 4);
-                        Console.WriteLine(" URL link: {0}", kontakt[3]);
+                        //Console.WriteLine(" URL link: {0}", kontakt[3]);
                     }
                     //write the line to console window
-                    Console.WriteLine(line + "från Kontakt.txt");
+                    //Console.WriteLine(line + "från Kontakt.txt");
                     //Read the next line
                     line = sr.ReadLine();
                 }
@@ -322,6 +338,36 @@ namespace JobApplyOrganizer
             finally
             {
                 Console.WriteLine("Executing finally block.");
+            }
+        }
+        private void SaveKontaktTXT(String[] inData)
+        {
+            String Name_ = inData[3];
+            String Phone_ = inData[4];
+            String Email_ = inData[5];
+            String URL_ = inData[6];
+            // Create a file to write to.
+
+            String cleanedPath = Util.CleanPath(inData[0] + "\\Kontakt.txt", @"\\", "\\");
+
+            using (StreamWriter sw = File.CreateText(cleanedPath))
+            {
+                try
+                {
+                    sw.WriteLine(String.Format("Namn: {0}", Name_.Trim()));
+                    sw.WriteLine(String.Format("Tele: {0}", Phone_.Trim()));
+                    sw.WriteLine(String.Format("Mail: {0}", Email_.Trim()));
+                    sw.WriteLine(String.Format("URL: {0}", URL_.Trim()));
+                    sw.Close();
+                }
+                catch (Exception err)
+                {
+                    Console.WriteLine("Exception: " + err.Message);
+                }
+                finally
+                {
+                    Console.WriteLine("Executing finally block.");
+                }
             }
         }
     }
