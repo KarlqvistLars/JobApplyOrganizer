@@ -72,13 +72,14 @@
             // 
             // buttonCreate
             // 
+            this.buttonCreate.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonCreate.Location = new System.Drawing.Point(24, 290);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(152, 49);
             this.buttonCreate.TabIndex = 2;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonCreate.Click += new System.EventHandler(this.ButtonCreate_Click);
             // 
             // buttonCancel
             // 
@@ -88,7 +89,7 @@
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // textBoxURL
             // 
@@ -128,7 +129,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 25);
+            this.label1.Size = new System.Drawing.Size(105, 20);
             this.label1.TabIndex = 8;
             this.label1.Text = "URL(job ad):";
             // 

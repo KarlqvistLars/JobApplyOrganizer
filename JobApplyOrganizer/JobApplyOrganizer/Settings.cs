@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,40 +14,57 @@ namespace JobApplyOrganizer
 {
     public partial class Settings : Form
     {
-        String _workingdir = null;
-        public Settings(String workingdir)
+        readonly String _workingdir = null;
+        readonly String _templateDir = null;
+        public Settings(String workingdir, String templateDir)
         {
             InitializeComponent();
             _workingdir = workingdir;
+            _templateDir = templateDir;
             textBoxWorkDir.Text = _workingdir;
+            labelTemplateDirectory.Text = _templateDir;
         }
         public string Workingdir { get; set; }
-
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
+            Workingdir = textBoxWorkDir.Text;
             // TODO: Skriv koden för uppdatering
             this.Close();
         }
-
-        private void buttonSelect_Click(object sender, EventArgs e)
+        private void ButtonSelect_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            this.StartPosition = FormStartPosition.CenterParent;
-            string dummyFileName = "Save Here";
-            ofd.Title = "Select location for job applications";
-            ofd.FileName = dummyFileName;
-            ofd.CheckFileExists = false;
-            ofd.InitialDirectory = this.textBoxWorkDir.Text;
-            if (ofd.ShowDialog() == DialogResult.OK)
+            string path = String.Format(_workingdir);
+            Console.WriteLine(path);
+            var dlg = new FolderBrowserDialog { SelectedPath = path };
+            
+            using (dlg)
             {
-                this.textBoxWorkDir.Text = Path.GetDirectoryName(ofd.FileName).ToLower();
+                this.StartPosition = FormStartPosition.CenterParent;
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    this.StartPosition = FormStartPosition.CenterParent;
+                    Workingdir = dlg.SelectedPath;
+                    textBoxWorkDir.Text = Workingdir;
+                }
             }
-            this.Workingdir = this.textBoxWorkDir.Text.Trim();
+        }
+        private void buttonOpenDir_Click(object sender, EventArgs e)
+        {
+            if (IsValidPath(_templateDir))
+            {
+                if (Directory.Exists(@_templateDir))
+                {
+                    Process.Start("explorer.exe", @_templateDir);
+                }
+            }
+        }
+        private bool IsValidPath(string workingdir)
+        {
+            if (!Directory.Exists(@workingdir)) { return false; } else { return true; }
         }
     }
 }

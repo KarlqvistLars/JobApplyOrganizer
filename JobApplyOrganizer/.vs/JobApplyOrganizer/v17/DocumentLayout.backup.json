@@ -3,19 +3,27 @@
   "WorkspaceRootPath": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\jobapplyorganizer\\mainjobapplyorganizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|c:\\projekt\\2024\\24019_jobapplyorganizer\\code\\jobapplyorganizer\\jobapplyorganizer\\jobapplyorganizer\\jobapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\jobapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|c:\\projekt\\2024\\24019_jobapplyorganizer\\code\\jobapplyorganizer\\jobapplyorganizer\\jobapplyorganizer\\filecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\filecontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|c:\\projekt\\2024\\24019_jobapplyorganizer\\code\\jobapplyorganizer\\jobapplyorganizer\\jobapplyorganizer\\newjobproject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\newjobproject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|c:\\projekt\\2024\\24019_jobapplyorganizer\\code\\jobapplyorganizer\\jobapplyorganizer\\jobapplyorganizer\\mainjobapplyorganizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\mainjobapplyorganizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\jobapplyorganizer\\mainjobapplyorganizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\mainjobapplyorganizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\jobapplyorganizer\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\jobapplyorganizer\\makehtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\makehtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|c:\\projekt\\2024\\24019_jobapplyorganizer\\code\\jobapplyorganizer\\jobapplyorganizer\\jobapplyorganizer\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\jobapplyorganizer\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,8 +31,8 @@
       "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\settings.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\jobapplyorganizer\\newjobproject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\newjobproject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\jobapplyorganizer\\makehtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22454920-CCEA-42B6-9F20-EF0A38D03EE3}|JobApplyOrganizer\\JobApplyOrganizer.csproj|solutionrelative:jobapplyorganizer\\makehtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -33,88 +41,126 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 327,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 541,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "MainJobApplyOrganizer.cs",
               "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MainJobApplyOrganizer.cs",
               "RelativeDocumentMoniker": "JobApplyOrganizer\\MainJobApplyOrganizer.cs",
               "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MainJobApplyOrganizer.cs",
               "RelativeToolTip": "JobApplyOrganizer\\MainJobApplyOrganizer.cs",
-              "ViewState": "AgIAAMUAAAAAAAAAAAAmwNsAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T18:23:07.724Z",
+              "WhenOpened": "2024-10-06T20:36:01.924Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainJobApplyOrganizer.cs [Design]",
-              "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MainJobApplyOrganizer.cs",
-              "RelativeDocumentMoniker": "JobApplyOrganizer\\MainJobApplyOrganizer.cs",
-              "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MainJobApplyOrganizer.cs [Design]",
-              "RelativeToolTip": "JobApplyOrganizer\\MainJobApplyOrganizer.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T13:31:01.067Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Utilities.cs",
               "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\Utilities.cs",
               "RelativeDocumentMoniker": "JobApplyOrganizer\\Utilities.cs",
               "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\Utilities.cs",
               "RelativeToolTip": "JobApplyOrganizer\\Utilities.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAIAwwA0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-05T10:26:26.975Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Settings.Designer.cs",
               "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\Settings.Designer.cs",
               "RelativeDocumentMoniker": "JobApplyOrganizer\\Settings.Designer.cs",
               "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\Settings.Designer.cs",
               "RelativeToolTip": "JobApplyOrganizer\\Settings.Designer.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAAwDsAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T18:46:37.412Z",
+              "WhenOpened": "2024-10-06T13:32:39.52Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "MakeHTML.cs",
               "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MakeHTML.cs",
               "RelativeDocumentMoniker": "JobApplyOrganizer\\MakeHTML.cs",
               "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\MakeHTML.cs",
               "RelativeToolTip": "JobApplyOrganizer\\MakeHTML.cs",
-              "ViewState": "AgIAANsAAAAAAAAAAAAmwEkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T14:18:13.605Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\Settings.cs",
+              "RelativeDocumentMoniker": "JobApplyOrganizer\\Settings.cs",
+              "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\Settings.cs",
+              "RelativeToolTip": "JobApplyOrganizer\\Settings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-06T09:41:01.137Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 559,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FileControl.cs",
+              "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\FileControl.cs",
+              "RelativeDocumentMoniker": "JobApplyOrganizer\\FileControl.cs",
+              "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\FileControl.cs",
+              "RelativeToolTip": "JobApplyOrganizer\\FileControl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T20:56:27.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "NewJobProject.cs",
               "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\NewJobProject.cs",
               "RelativeDocumentMoniker": "JobApplyOrganizer\\NewJobProject.cs",
               "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\NewJobProject.cs",
               "RelativeToolTip": "JobApplyOrganizer\\NewJobProject.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAQwC4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T13:39:23.892Z"
+              "WhenOpened": "2024-10-09T17:11:15.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JobApplication.cs",
+              "DocumentMoniker": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplication.cs",
+              "RelativeDocumentMoniker": "JobApplyOrganizer\\JobApplication.cs",
+              "ToolTip": "C:\\PROJEKT\\2024\\24019_JobApplyOrganizer\\Code\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplyOrganizer\\JobApplication.cs",
+              "RelativeToolTip": "JobApplyOrganizer\\JobApplication.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T21:42:10.73Z",
+              "EditorCaption": ""
             }
           ]
         }
